@@ -16,6 +16,9 @@ public class InputManager : MonoBehaviour
     private GameManager gameManager;
     [SerializeField] private string ExitSceneName;
 
+    public GameObject helpScreen;
+    private bool isActiveHelpScreen = false;
+
     private void Start()
     {
         gameManager = GetComponent<GameManager>();
@@ -131,5 +134,14 @@ public class InputManager : MonoBehaviour
     public void ExitButton()
     {
         SceneManager.LoadScene(ExitSceneName);
+    }
+
+    public void HelpButton()
+    {
+        gameManager.gameScreen.SetActive(isActiveHelpScreen);
+
+        helpScreen.SetActive(!isActiveHelpScreen);
+
+        isActiveHelpScreen = !isActiveHelpScreen;
     }
 }

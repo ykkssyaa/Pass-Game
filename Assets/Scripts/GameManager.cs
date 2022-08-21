@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     private InputManager inputManager;
     private PassGenerator passGenerator;
 
+    [Space]
     [SerializeField] private string password;
     [SerializeField] private int passwordLenght = 4;
 
@@ -122,5 +123,4 @@ public class GameManager : MonoBehaviour
 
         triesText.text = "Tries count: " + triesCount;
     }
-
 }
