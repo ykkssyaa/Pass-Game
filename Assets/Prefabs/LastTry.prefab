@@ -917,6 +917,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c1871fda722ed4383fbe1f968983ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Indicators:
+  - {fileID: 5534118636201762614}
+  - {fileID: 5534118636212211252}
+  - {fileID: 5534118636745051038}
+  - {fileID: 5534118637126276893}
+  Nums:
+  - {fileID: 5534118635820699595}
+  - {fileID: 5534118636420864297}
+  - {fileID: 5534118635774731617}
+  - {fileID: 5534118637799744018}
+  MatchIndicatorMaterial: {fileID: 0}
+  MatchWithPlaceIndicatorMaterial: {fileID: 0}
+  InvisibleMaterial: {fileID: 0}
 --- !u!1 &5534118637799744016
 GameObject:
   m_ObjectHideFlags: 0

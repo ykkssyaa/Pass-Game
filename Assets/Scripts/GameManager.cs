@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     [Space]
     [SerializeField] private string password;
+    private string InputPass;
     [SerializeField] private int passwordLenght = 4;
 
     private int equalNumbers; // Количество совпадений чисел, но которые стоят не на своем месте(корова)
@@ -31,6 +32,11 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI triesText;
     private int triesCount = 0;
 
+    [Space]
+
+    public GameObject ContentParent;
+    public GameObject TryInHistory;
+
     private void Start()
     {
         inputManager = GetComponent<InputManager>();
@@ -41,6 +47,8 @@ public class GameManager : MonoBehaviour
 
     public void MatchesOfInputAndPassword(string InputNums)
     {
+        InputPass = InputNums;
+
         triesCount++;
         equalNumbers = 0; equalNumbersWithSamePlace = 0;
 
@@ -112,7 +120,10 @@ public class GameManager : MonoBehaviour
     // Добавление в историю ввёденных кодов
     public void AddToHistory()
     {
+        LastTryConstructor LastTry = Instantiate(TryInHistory, ContentParent.transform).GetComponent<LastTryConstructor>();
 
+        LastTry.SetNumbers(InputPass, passwordLenght);
+        LastTry.SetIndicators(equalNumbersWithSamePlace, equalNumbers, IndicatorsCount);
     }
     // Показать экран победы
     private void WinScreen()
