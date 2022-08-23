@@ -927,9 +927,9 @@ MonoBehaviour:
   - {fileID: 5534118636420864297}
   - {fileID: 5534118635774731617}
   - {fileID: 5534118637799744018}
-  MatchIndicatorMaterial: {fileID: 0}
-  MatchWithPlaceIndicatorMaterial: {fileID: 0}
-  InvisibleMaterial: {fileID: 0}
+  MatchIndicatorMaterial: {fileID: 2100000, guid: 040be702b94e1e644b106a5c7855d875, type: 2}
+  MatchWithPlaceIndicatorMaterial: {fileID: 2100000, guid: ce9089d7deb4f8d42b077c8facb63fb2, type: 2}
+  InvisibleMaterial: {fileID: 2100000, guid: f1f0c75810fab694983afc486d256b68, type: 2}
 --- !u!1 &5534118637799744016
 GameObject:
   m_ObjectHideFlags: 0
