@@ -18,9 +18,6 @@ public class LastTryConstructor : MonoBehaviour
     private void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-/*        InvisibleMaterial = gameManager.InvisibleMaterial;
-        MatchIndicatorMaterial = gameManager.MatchIndicatorMaterial;
-        MatchWithPlaceIndicatorMaterial = gameManager.MatchWithPlaceIndicatorMaterial;*/
     }
 
     public void SetNumbers(string InputNumbers, int NumCount)

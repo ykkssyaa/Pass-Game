@@ -7,12 +7,17 @@ public class MainMenu : MonoBehaviour
 {
 
     public string GameSceneName;
+    public string DuelSceneName;
     public GameObject helpScreen;
     public GameObject mainScreen;
 
     public void GameButton()
     {
         SceneManager.LoadScene(GameSceneName);
+    }
+    public void DuelButton()
+    {
+        SceneManager.LoadScene(DuelSceneName);
     }
 
     public void ExitButton()

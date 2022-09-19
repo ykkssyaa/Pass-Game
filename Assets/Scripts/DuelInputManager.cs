@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class InputManager : MonoBehaviour
+public class DuelInputManager : MonoBehaviour
 {
     private int countOfNums = 4;
     public TextMeshProUGUI[] InputNums = new TextMeshProUGUI[4];
@@ -13,15 +13,17 @@ public class InputManager : MonoBehaviour
     private int currentNumIndex = 0;
     private string currentNumber = "    ";
 
-    private GameManager gameManager;
+    private DuelGameManager duelGameManager;
     [SerializeField] private string ExitSceneName;
 
     public GameObject helpScreen;
     private bool isActiveHelpScreen = false;
 
+    public GameObject ExitButt;
+
     private void Start()
     {
-        gameManager = GetComponent<GameManager>();
+        duelGameManager = GetComponent<DuelGameManager>();
         DeleteAllInputNums();
     }
 
@@ -36,7 +38,7 @@ public class InputManager : MonoBehaviour
     {
         string result = "";
 
-        for(int i = 0; i < str.Length; i++)
+        for (int i = 0; i < str.Length; i++)
         {
             if (i != index) result += str[i];
             else result += charToUpdate;
@@ -55,8 +57,8 @@ public class InputManager : MonoBehaviour
 
             SetText(InputNums[currentNumIndex], buttonNum); // Обновление текста текущей ячейки
 
-            if(currentNumIndex < countOfNums - 1)
-                currentNumIndex++; 
+            if (currentNumIndex < countOfNums - 1)
+                currentNumIndex++;
         }
         else
         {
@@ -68,9 +70,9 @@ public class InputManager : MonoBehaviour
     {
         bool res = false;
 
-        foreach(var num in currentNumber)
+        foreach (var num in currentNumber)
         {
-            if(num == buttonNum) res = true;
+            if (num == buttonNum) res = true;
         }
 
         return res;
@@ -86,9 +88,9 @@ public class InputManager : MonoBehaviour
     {
         bool res = true;
 
-        foreach(var num in InputNums)
+        foreach (var num in InputNums)
         {
-            if(string.IsNullOrEmpty(num.text))
+            if (string.IsNullOrEmpty(num.text))
             {
                 res = false; break;
             }
@@ -100,7 +102,7 @@ public class InputManager : MonoBehaviour
     // Возвращение к исходному положению(удаление всех символов в строке ввода)
     private void DeleteAllInputNums()
     {
-        foreach(var num in InputNums)
+        foreach (var num in InputNums)
         {
             num.text = "";
         }
@@ -114,7 +116,7 @@ public class InputManager : MonoBehaviour
     {
         if (AllNumsAreEntered())
         {
-            gameManager.MatchesOfInputAndPassword(currentNumber);
+            duelGameManager.InputProcessing(currentNumber);
 
             DeleteAllInputNums();
         }
@@ -122,7 +124,7 @@ public class InputManager : MonoBehaviour
     }
     public void DeleteButton()
     {
-        if(currentNumIndex > 0 && InputNums[currentNumIndex].text == "")
+        if (currentNumIndex > 0 && InputNums[currentNumIndex].text == "")
         {
             currentNumIndex--;
         }
@@ -138,7 +140,8 @@ public class InputManager : MonoBehaviour
 
     public void HelpButton()
     {
-        gameManager.gameScreen.SetActive(isActiveHelpScreen);
+        duelGameManager.gameScreen.SetActive(isActiveHelpScreen);
+        ExitButt.SetActive(isActiveHelpScreen);
 
         helpScreen.SetActive(!isActiveHelpScreen);
 
