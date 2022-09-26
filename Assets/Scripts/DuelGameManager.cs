@@ -215,6 +215,8 @@ public class DuelGameManager : MonoBehaviour
     {
         if (isFirstPlayerNow)
             winnerName.text = playerFirstName;
+        else
+            winnerName.text = playerSecondName;
 
         gameScreen.SetActive(false);
 
