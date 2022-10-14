@@ -59,6 +59,8 @@ public class DuelGameManager : MonoBehaviour
     public string playerFirstName = "Player 1";
     public string playerSecondName = "Player 2";
 
+    public GameObject helpButton;
+
     private void Start()
     {
         isPasswordInputed = false;
@@ -219,6 +221,7 @@ public class DuelGameManager : MonoBehaviour
             winnerName.text = playerSecondName;
 
         gameScreen.SetActive(false);
+        helpButton.SetActive(false);
 
         winScreen.SetActive(true);
 

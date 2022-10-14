@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
     public GameObject ContentParent;
     public GameObject TryInHistory;
 
+    public GameObject helpButton;
+
     private void Start()
     {
         inputManager = GetComponent<InputManager>();
@@ -129,6 +131,7 @@ public class GameManager : MonoBehaviour
     private void WinScreen()
     {
         gameScreen.SetActive(false);
+        helpButton.SetActive(false);
 
         winScreen.SetActive(true);
 

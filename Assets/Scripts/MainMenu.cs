@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(GameSceneName);
     }
+
     public void DuelButton()
     {
         SceneManager.LoadScene(DuelSceneName);
